@@ -1,0 +1,11 @@
+repositories {
+  jcenter()
+
+  maven {
+    url  "https://dl.bintray.com/onfido/maven"
+  }
+}
+dependencies {
+  implementation 'com.google.android.gms:play-services-base:+'
+  implementation 'com.android.support:support-annotations:28.0.0'
+}

@@ -1,0 +1,27 @@
+{
+  "name": "cordova-plugin-bubicardscan",
+  "version": "0.1.0",
+  "description": "Plugin to scan chinese id cards and retrieve information via OCR",
+  "cordova": {
+    "id": "cordova-plugin-bubicardscan",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FLAVQUR/BubiCardScan.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "Joao Ferreira",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FLAVQUR/BubiCardScan/issues"
+  },
+  "homepage": "https://github.com/FLAVQUR/BubiCardScan#readme"
+}

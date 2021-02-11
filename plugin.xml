@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="cordova-plugin-bubicardscan" version="0.1.0">
+    <name>BubiCardScan</name>
+	
+    <js-module name="BubiCardScan" src="www/bubicardscan.js">
+        <clobbers target="bubicardscan" />
+		<clobbers target="cordova.plugins.bubicardscan"/>
+        <clobbers target="plugin.bubicardscan"/>
+    </js-module>
+	
+	    <config-file target="app/src/main/AndroidManifest.xml" parent="/manifest/application">
+        <activity android:name="com.plugin.bubicardscan.BubiCardScanActivity" android:label="BubiCardScan Activity">
+            <intent-filter>
+                <action android:name="com.plugin.bubicardscan.BubiCardScanActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+    </config-file>
+	
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="BubiCardScan">
+                <param name="android-package" value="com.plugin.bubicardscan.BubiCardScanBridge" />
+                <param name="android-package-BubiCardScanActivity" value="com.plugin.bubicardscan.BubiCardScanActivity"/>
+                <param name="onload" value="true"/>
+            </feature>
+        </config-file>
+        <config-file parent="/*" target="AndroidManifest.xml">
+			<uses-permission android:name="android.permission.CAMERA" />
+			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+		</config-file>
+        <source-file src="src/android/BubiCardScanBridge.java" target-dir="src/com/plugin/bubicardscan" />
+		<source-file src="src/android/BubiCardScanActivity.java" target-dir="src/com/plugin/bubicardscan" />
+		<lib-file src="src/android/libs/idcardscansdk_pr.jar" />
+        <framework src="src/android/BubiCardScan.gradle" custom="true" type="gradleReference"/>
+    </platform>
+	
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="BubiCardScan">
+                <param name="ios-package" value="BubiCardScan" />
+            </feature>
+        </config-file>
+		<config-file target="*-Info.plist" parent="NSCameraUsageDescription">
+            <string>Required for document capture</string>
+        </config-file>
+        <source-file src="src/ios/BubiCardScan.m" />
+    </platform>
+</plugin>
